@@ -44,21 +44,22 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function win(humanChoice, computerChoice) {
-    console.log(`You choose: ${humanChoice}`);
-    console.log(`Computer choose: ${computerChoice}`)
+    displayState(humanChoice,computerChoice);
     console.log("You won!");
 }
 function draw(humanChoice, computerChoice) {
-    console.log(`You choose: ${humanChoice}`);
-    console.log(`Computer choose: ${computerChoice}`)
+    displayState(humanChoice, computerChoice);
     console.log("It's a draw!");
 }
 function loss(humanChoice, computerChoice) {
-    console.log(`You choose: ${humanChoice}`);
-    console.log(`Computer choose: ${computerChoice}`)
+    displayState(humanChoice, computerChoice);
     console.log("Computer won!");
 }
 
 function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
+}
+function displayState(humanChoice, computerChoice) {
+    console.log(`You choose: ${humanChoice}`);
+    console.log(`Computer choose: ${computerChoice}`)
 }
