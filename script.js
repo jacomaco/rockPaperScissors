@@ -1,8 +1,23 @@
-let humanScore = 0;
-let computerScore = 0;
 
-// 1 round
-playRound(getHumanChoice(), getComputerChoice());
+playGame();
+
+function playGame() {
+    humanScore = 0;
+    computerScore = 0;
+    const ROUNDS = 5;
+    for (let i = 0; i <5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+    // Conclude game
+    console.log("---------------------------------------------");
+    if (humanScore === computerScore) {
+        console.log(`It's a draw! Final score: ${humanScore} - ${computerScore}`);
+        return;
+    }
+    (humanScore < computerScore) ? 
+    console.log(`Computer won! Final Score: ${computerScore} - ${humanScore}`) :
+    console.log(`You won! Final Score: ${humanScore} - ${computerScore}`);
+}
 
 function getComputerChoice() {
     let numberOfHands = 3;
@@ -47,7 +62,7 @@ function playRound(humanChoice, computerChoice) {
 
 function win(humanChoice, computerChoice) {
     humanScore++;
-    displayState(humanChoice,computerChoice);
+    displayState(humanChoice, computerChoice);
     console.log("You won!");
 }
 function draw(humanChoice, computerChoice) {
@@ -68,3 +83,4 @@ function displayState(humanChoice, computerChoice) {
     console.log(`You choose: ${humanChoice}`);
     console.log(`Computer choose: ${computerChoice}`)
 }
+
