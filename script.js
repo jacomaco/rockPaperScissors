@@ -1,0 +1,19 @@
+function getComputerChoice() {
+    let numberOfHands = 3;
+    switch (Math.floor((Math.random() * numberOfHands) + 1)) {
+        case 1:
+            return "rock";
+            break;
+        case 2:
+            return "paper";
+            break;
+        case 3:
+            return "scissors";
+            break;
+        default:
+            return "invalid hand";
+            break;
+    }
+}
+
+console.log(getComputerChoice());
