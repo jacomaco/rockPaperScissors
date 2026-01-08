@@ -1,5 +1,5 @@
 let humanScore = 0;
-let computerSocre = 0;
+let computerScore = 0;
 
 // 1 round
 playRound(getHumanChoice(), getComputerChoice());
@@ -32,18 +32,21 @@ function playRound(humanChoice, computerChoice) {
     // handle invalit humanChoice
     if (humanChoice === "invalid hand") {
         console.error("invalid hand");
+        return;
     }
     let humanResult = capitalize(humanChoice);
     let computerResult = capitalize(computerChoice);
 
     if (humanChoice === computerChoice) {
         draw(humanResult, computerResult);
+        return;
     } 
 
     (humanChoice === "rock" && computerChoice == "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissor" && computerChoice === "rock") ? win(humanResult, computerResult) : loss(humanResult, computerResult);
 }
 
 function win(humanChoice, computerChoice) {
+    humanScore++;
     displayState(humanChoice,computerChoice);
     console.log("You won!");
 }
@@ -52,6 +55,7 @@ function draw(humanChoice, computerChoice) {
     console.log("It's a draw!");
 }
 function loss(humanChoice, computerChoice) {
+    computerScore++;
     displayState(humanChoice, computerChoice);
     console.log("Computer won!");
 }
@@ -60,6 +64,7 @@ function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
 function displayState(humanChoice, computerChoice) {
+    console.log(`Current score: Player: ${humanScore} Computer: ${computerScore}`);
     console.log(`You choose: ${humanChoice}`);
     console.log(`Computer choose: ${computerChoice}`)
 }
