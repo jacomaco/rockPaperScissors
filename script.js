@@ -1,3 +1,7 @@
+let humanScore = 0;
+let computerSocre = 0;
+
+
 console.log(getComputerChoice());
 console.log(getHumanChoice())
 
