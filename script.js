@@ -1,13 +1,34 @@
 
 playGame();
 
+
+
+
 function playGame() {
     humanScore = 0;
     computerScore = 0;
+    /*
     const ROUNDS = 5;
     for (let i = 0; i <5; i++) {
         playRound(getHumanChoice(), getComputerChoice());
     }
+    */
+    
+    // Add UI interactivity
+    const rockButton = document.createElement("button");
+    const paperButton = document.createElement("button");
+    const scissorsButton = document.createElement("button");
+
+    rockButton.addEventListener("click", e => {
+        playRound("rock", getComputerChoice());
+    })
+    paperButton.addEventListener("click", e => {
+        playRound("paper", getComputerChoice());
+    })
+    scissorsButton.addEventListener("click", e => {
+        playRound("scissors", getComputerChoice());
+    })
+
     // Conclude game
     console.log("---------------------------------------------");
     if (humanScore === computerScore) {
